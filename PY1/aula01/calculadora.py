@@ -4,16 +4,16 @@ valor2 = int(input('Informe um outro numero inteiro: '))
 
 operacao = valor1 + valor2 
 print('SOMA')
-print(valor1," + ",valor2," = ",operacao)
+print(str(valor1) + " + " + str(valor2) + " = " + str(operacao))
 
 operacao = valor1 - valor2 
 print('SUBTRAÇÃO')
-print(valor1," - ",valor2," = ",operacao)
+print(str(valor1) + " - " + str(valor2) + " = " + str(operacao))
 
 operacao = valor1 * valor2 
 print('MULTIPLICAÇÃO')
-print(valor1," x ",valor2," = ",operacao)
+print(str(valor1) + " x " + str(valor2) + " = " + str(operacao))
 
 operacao = valor1 / valor2 
 print('DIVISÃO')
-print(valor1," / ",valor2," = ",operacao)
+print(str(valor1) + " / " + str(valor2) + " = " + str(operacao))
