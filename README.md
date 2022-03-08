@@ -1,2 +1,2 @@
 # learningPython
-Repositórios de estudos na linguagem Python pela Proway.
+Repositórios de estudos na linguagem Python ministrado pelo Instrutor Jhonni na Proway
