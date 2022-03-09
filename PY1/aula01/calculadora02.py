@@ -7,10 +7,10 @@ num2 = (int(input("Digite outro número: ")))
 
 if(operacao == '+'):
     print(num1 + num2)
-if(operacao == '-'):
+elif(operacao == '-'):
     print(num1 - num2)
-if(operacao == 'x'):
+elif(operacao == 'x'):
     print(num1 * num2)
-if(operacao == '/'):
+elif(operacao == '/'):
     print(num1 / num2)
-##else: print("Operação Inválida!")
+else: print("Operação Inválida!")
