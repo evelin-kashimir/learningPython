@@ -16,7 +16,10 @@ match ope:
     case 'x':
         print("Resultado: " + str(num1 * num2))
     case '/':
-        print("Resultado: " + str(num1 / num2))
+        if (num2 == 0):
+            print("imposível dividir por zero!")
+        else:
+            print("Resultado: " + str(num1 / num2))
     case '0':
         print("Saindo...") 
     case default:
