@@ -12,8 +12,8 @@ while(usuario != 'aluno' and senha != 'proway'):
     print("Senha ou Usuário incorretos, digite novamente!")
 
 op = 5
-print("---------------------------------------")
 while( op != 0):
+    print("---------------------------------------")
     print('Olá Aluno, O que deseja fazer? ')
     print('[1] - DEPOSITAR')
     print('[2] - SACAR')
@@ -30,7 +30,7 @@ while( op != 0):
             if(saldo <= 0):
                 print("Você não tem saldo para sacar!")
             else:
-                saque = float(input("Valor do saque: R$"))
+                saque = float(input("Valor do saque: R$")) 
                 saldo = saldo - saque
         case 3:
             print("SALDO: R$" + str(saldo))
@@ -42,4 +42,4 @@ while( op != 0):
         case 0: 
             print("Saindo...")
         case outroCaso: 
-            print("Opção inválida")
+            print("Opção inválida, tente novamente!")
