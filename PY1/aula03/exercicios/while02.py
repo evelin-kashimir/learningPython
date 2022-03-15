@@ -6,10 +6,12 @@ print('PROWAY - TREINAMENTOS, AGORA É BANCO')
 print('-'.ljust(40, '-'))
 print('LOGIN'.center(40, ' '))
 
-while(usuario != 'aluno' and senha != 'proway'):
-    usuario = input("Usuario: ")
-    senha = input("Senha: ")    
-    print("Senha ou Usuário incorretos, digite novamente!")
+usuario = input("Usuario: ") 
+senha = input("Senha: ")     
+while(usuario != 'aluno' or senha != 'proway'):     
+    print("Senha ou Usuário incorretos, digite novamente!")     
+    usuario = input("Usuario: ")     
+    senha = input("Senha: ")
 
 op = 5
 while( op != 0):
