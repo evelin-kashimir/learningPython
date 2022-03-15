@@ -1,3 +1,4 @@
+
 #declarando variável
 msg = "Seja bem vindo(a) ao curso de Python!"  
 #imprime algo - saída
