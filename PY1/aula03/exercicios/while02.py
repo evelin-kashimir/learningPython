@@ -24,22 +24,31 @@ while( op != 0):
 
     match op:
         case 1: 
-            deposito = float(input("Depósito: R$"))
+            print("-".ljust(30, "-"))
+            print("DEPÓSITO".center(30, ' '))
+            deposito = float(input("R$"))
             saldo = saldo + deposito 
         case 2:
             if(saldo <= 0):
                 print("Você não tem saldo para sacar!")
             else:
-                saque = float(input("Valor do saque: R$")) 
+                print("-".ljust(30, "-"))
+                print("SAQUE".center(30, ' '))
+                saque = float(input("R$")) 
                 saldo = saldo - saque
         case 3:
-            print("SALDO: R$" + str(saldo))
+            print("-".ljust(30, "-"))
+            print("SALDO".center(30, ' '))
+            print("R$" + str(saldo))
         case 4:
-            print("TRANFERÊNCIA")
+            print("-".ljust(30, "-"))
+            print("TRANFERÊNCIA".center(30, ' '))
             conta = input("Conta de destino: ")
-            transf = float(input("Valor: R$"))
+            transf = float(input("R$"))
             saldo = saldo - transf
         case 0: 
+            print("-".ljust(30, "-"))
             print("Saindo...")
-        case outroCaso: 
+        case outroCaso:
+            print("-".ljust(30, "-")) 
             print("Opção inválida, tente novamente!")
