@@ -29,12 +29,12 @@ while( op != 0):
             deposito = float(input("R$"))
             saldo = saldo + deposito 
         case 2:
-            if(saldo <= 0):
-                print("Você não tem saldo para sacar!")
+            print("-".ljust(30, "-"))
+            print("SAQUE".center(30, ' '))
+            saque = float(input("R$")) 
+            if(saque > saldo):
+                print("Saldo insulficiente!")
             else:
-                print("-".ljust(30, "-"))
-                print("SAQUE".center(30, ' '))
-                saque = float(input("R$")) 
                 saldo = saldo - saque
         case 3:
             print("-".ljust(30, "-"))
@@ -44,8 +44,11 @@ while( op != 0):
             print("-".ljust(30, "-"))
             print("TRANFERÊNCIA".center(30, ' '))
             conta = input("Conta de destino: ")
-            transf = float(input("R$"))
-            saldo = saldo - transf
+            if(len(conta) == 5): #verificando tamanho
+                transf = float(input("R$"))
+                saldo = saldo - transf
+            else:
+                print("Conta inválida, conta deve conter ao menos 5 dígitos")
         case 0: 
             print("-".ljust(30, "-"))
             print("Saindo...")
