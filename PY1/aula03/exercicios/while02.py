@@ -3,8 +3,8 @@ senha = ''
 saldo = 0
 
 print('PROWAY - TREINAMENTOS, AGORA É BANCO')
-print('------------------------------------')
-print('              LOGIN')
+print('-'.ljust(40, '-'))
+print('LOGIN'.center(40, ' '))
 
 while(usuario != 'aluno' and senha != 'proway'):
     usuario = input("Usuario: ")
@@ -13,7 +13,7 @@ while(usuario != 'aluno' and senha != 'proway'):
 
 op = 5
 while( op != 0):
-    print("---------------------------------------")
+    print("-".ljust(30, "-"))
     print('Olá Aluno, O que deseja fazer? ')
     print('[1] - DEPOSITAR')
     print('[2] - SACAR')
