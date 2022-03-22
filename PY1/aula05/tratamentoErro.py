@@ -1,4 +1,4 @@
-# TRATANDO ERROS - Exceções
+# TRATANDO ERROS - Exceções - Try Catch
 try:                                                            # 1 - tente efetuar a divisão   
     try:                                                        # 2 - tente receber o primeiro dado
         valor01 = int(input('Informe um valor inteiro: '))     
