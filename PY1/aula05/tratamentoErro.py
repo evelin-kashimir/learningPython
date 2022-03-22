@@ -1,18 +1,17 @@
 # TRATANDO ERROS - Exceções - Try Catch
-try:                                                            # 1 - tente efetuar a divisão   
-    try:                                                        # 2 - tente receber o primeiro dado
-        valor01 = int(input('Informe um valor inteiro: '))     
-        try:
-            valor02 = int(input('Informe outro valor inteiro: '))   # 3 -tente receber o segundo valor
-            try:
-                print('A divisão dos valores digitados é: ' + str(valor01 / valor02)) # 4 -tente dividir os valores
-                print('Obrigada por usar nosso sistema')        
-            except:                                             
-                print('Impossível dividir por zero')            # 4 - se o dividendo for 0, imprima
-        except:
-            print('Erro ao informar o segundo valor')           # 2 - se der erro segundo valor, imprima 
-    except:
-        print('Erro ao informar o primeiro valor ')             # 3 - se der erro no primeiro valor, imprima
+try:                                                                                                              
+    valor01 = int(input('Informe um valor inteiro: '))            
+    valor02 = int(input('Informe outro valor inteiro: '))       
+    print('A divisão dos valores digitados é: ' + str(valor01 / valor02)) 
+    print('Obrigada por usar nosso sistema')  
+except NameError:                                   #se a variavel não foi declarada nameError, lança uma exceção (variavel não existente globalmente)
+    print('Alguma variável não existe')      
+except ZeroDivisionError:                           #se o dividendo for 0, ZeroDivisionError lança uma exceção
+    print('Impossível dividir por zero')                                                           
+except ValueError:                                  #se o dado for inválido, valueError imprime uma exceção de valor incorreto
+    print('Erro ao informar um dos valores ')   
+except TypeError:
+    print('Tipo de dado inválido')                  #Tipo de dado incorreto, exemplo string quando precisa ser inteiro, typeError lança uma exceção
 except:
-    print('Erro ao efetuar a divisão')                          # 1 - se a divisão não ocorrer, imprima
+   print('Erro ao efetuar a divisão')               #se a divisão não ocorrer, imprima (tratamento genérico)
 
