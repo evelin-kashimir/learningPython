@@ -21,6 +21,11 @@ print(carro02.subirMarcha())
 print(carro02.subirMarcha())
 print(carro02.subirMarcha())
 print(carro02.descerMarcha())
+print(carro02.descerMarcha())
+print(carro02.descerMarcha())
+print(carro02.descerMarcha())
+print(carro02.descerMarcha())
+print(carro02.descerMarcha())
 carro.imprimeDados()
 
 

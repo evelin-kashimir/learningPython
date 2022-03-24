@@ -35,20 +35,22 @@ class Veiculo:
         if self.ligado and self.marcha <= self.totalMarcha:
             self.marcha+=1
             if self.marcha == 0:
-                print('Ponto morto')
+                return 'Ponto morto'
+            if self.marcha == -1:
+                return 'Marcha Ré'
             else:
                 return 'Subiu para: ' + str(self.marcha) + 'ª marcha!'
-
 
     def descerMarcha(self):
         if self.ligado and self.marcha > -1:
             self.marcha-=1
             if self.marcha == 0:
-                print('Ponto morto')
-            else: 
+                return 'Ponto morto'
+            if self.marcha == -1:
+                return 'Marcha Ré'
+            else:
                 return 'Desceu para: ' + str(self.marcha) + 'ª marcha!'
-        
-
+         
     def imprimeDados(self):
         print(self.modelo)
         print(self.ano)
