@@ -16,31 +16,46 @@ class Veiculo:
         self.cor = cor
         self.velMaxima = velMaxima
         self.ligado = ligado
+        self.totalMarcha = 5
+        self.marcha = 0
 
     def ligar(self, ligar = True):
         self.ligado = ligar
-        if self.ligado == True:
-            print('Vrum Vrum - Carro ligado!')
-        else:
-            print('Opa - Carro desligado!')
+        if self.ligado:
+            return 'Vrum Vrum - Carro já está ligado!'
+        return 'Opa - Carro desligado, vamos ligar!'
 
-#instanciando o objeto c1
-carro = Veiculo('Corsa', 2000, 'preto', 4, 200, True) #self - objeto que está sendo criado 
-print(carro.modelo)
-print(carro.cor)
-print(carro.ano)
-print(carro.qtdPortas)
-print(carro.velMaxima)
-carro.ligar()
+    def desligar(self):
+        if self.ligado:
+            self.desligar = True
+            return 'Carro desligado'
+        return 'Carro já está desligado'   
 
-carro02 = Veiculo('Porshe', 2022, 'preto', 2, 260)
-print(carro02.modelo)
-print(carro02.cor)
-print(carro02.ano)
-print(carro02.qtdPortas)
-print(carro02.velMaxima)
-print(carro02.ligado)
-carro02.ligar(False)
+    def subirMarcha(self):
+        if self.ligado and self.marcha <= self.totalMarcha:
+            self.marcha+=1
+            if self.marcha == 0:
+                print('Ponto morto')
+            else:
+                return 'Subiu para: ' + str(self.marcha) + 'ª marcha!'
+
+
+    def descerMarcha(self):
+        if self.ligado and self.marcha > -1:
+            self.marcha-=1
+            if self.marcha == 0:
+                print('Ponto morto')
+            else: 
+                return 'Desceu para: ' + str(self.marcha) + 'ª marcha!'
+        
+
+    def imprimeDados(self):
+        print(self.modelo)
+        print(self.ano)
+        print(self.cor)
+        print(self.qtdPortas)
+        print(self.velMaxima)
+        print(self.marcha)
 
 
 
