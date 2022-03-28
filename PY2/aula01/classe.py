@@ -1,14 +1,6 @@
 #instanciando uma classe 
 class Veiculo:
-    ''' 
-    Atributos
-    modelo = 'Porshe'
-    ano = 2022
-    cor = 'preto'
-    qtdPortas = 4
-    velMaxima = 260
-    '''
-    #Método construtor - Atributos de instancia
+
     def __init__(self, modelo, ano, cor, qtdPortas, velMaxima, ligado = False):
         self.modelo = modelo
         self.ano = ano
@@ -18,19 +10,27 @@ class Veiculo:
         self.ligado = ligado
         self.totalMarcha = 5
         self.marcha = 0
-
+        self.velocidade = 0
+        self.PodeMudarMarcha = False
+        
     def ligar(self, ligar = True):
-        self.ligado = ligar
-        if self.ligado:
-            return 'Vrum Vrum - Carro já está ligado!'
-        return 'Opa - Carro desligado, vamos ligar!'
+        if self.marcha == 0:
+            if self.ligado:                    
+                self.ligado = ligar
+                self.PodeMudarMarcha = True
+                return 'Vrum Vrum - Carro ligado!'
+            return 'Carro já está ligado'
+        return 'Opa - Carro não pode ser ligado, está engatado'
 
-    def desligar(self):
-        if self.ligado:
-            self.desligar = True
-            return 'Carro desligado'
-        return 'Carro já está desligado'   
-
+    def desligar(self):            
+        if self.marcha == 0:
+            if self.ligado:
+                self.desligar = True
+                self.PodeMudarMarcha = False
+                return 'Carro desligado'           
+            return 'Carro já estava desligado'
+        return 'Carro não pode ser desligado fora do ponto morto'   
+       
     def subirMarcha(self):
         if self.ligado and self.marcha <= self.totalMarcha:
             self.marcha+=1
@@ -40,6 +40,7 @@ class Veiculo:
                 return 'Marcha Ré'
             else:
                 return 'Subiu para: ' + str(self.marcha) + 'ª marcha!'
+        return 'Já está na ' + str(self.marcha) + 'ª marcha!'
 
     def descerMarcha(self):
         if self.ligado and self.marcha > -1:
@@ -50,7 +51,16 @@ class Veiculo:
                 return 'Marcha Ré'
             else:
                 return 'Desceu para: ' + str(self.marcha) + 'ª marcha!'
-         
+        return 'Já está na ' + str(self.marcha) + 'ª marcha!'
+       
+    def acelerar(self):    
+        if self.PodeMudarMarcha:
+            self.velocidade += 20
+            print(self.subirMarcha())
+        
+            return 'Velocidade atual: ' + str(self.velocidade)
+        return 'O carro precisa estar ligado para acelerar.'
+
     def imprimeDados(self):
         print(self.modelo)
         print(self.ano)
@@ -58,6 +68,8 @@ class Veiculo:
         print(self.qtdPortas)
         print(self.velMaxima)
         print(self.marcha)
+        print(self.velocidade)
+
 
 
 
