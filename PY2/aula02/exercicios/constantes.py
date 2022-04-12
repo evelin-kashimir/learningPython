@@ -1,0 +1,5 @@
+MSG_SALDO_INSUFICIENTE = 'Saldo insuficiente!'
+MSG_SUCESSO_SAQUE = 'Saque efetuado com sucesso!'
+MSG_SUCESSO_TRANSFERENCIA = 'Transferência efetuada com sucesso!'
+MSG_SUCESSO_DEPOSITO = 'Depósito efetuad com sucesso!'
+MSG_ERRO_SAQUE = 'Ocorreu um erro ao efetuar o saque!'

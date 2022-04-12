@@ -1,8 +1,12 @@
+from calendar import c
 from ContaCorrente import ContaCorrente
 from ContaPoupanca import ContaPoupanca
 from ContaSalario import ContaSalario
+import constantes as c
 import time 
 import os
+
+#constantes
 
 opc = 5
 opc02 = 5
@@ -17,7 +21,9 @@ while opc != 0:
     print('[3] - Conta Poupança')
     opc = int(input(' -> '))
 
-    contas = []
+    contasC = {}
+    contasS = {}
+    contasP = {}
     dono = ''
     numero = 0
     saque = 0
@@ -29,7 +35,7 @@ while opc != 0:
             dono = input('Nome: ')
             numero = int(input('Numero: '))
             conta = ContaCorrente(dono, numero)
-            contas.append(conta)
+            contasC[numero] = 0
 
             while opc02 != 0:
                 print('CORRENTE'.center(40, ' ') + '|')
@@ -60,7 +66,7 @@ while opc != 0:
                         print('-'.ljust(40, '-'))
                         contaDestino = int(print('Digite o numero da conta para qual desejar transferir: '))
                         valor = int(input('Valor da tranferência: R$'))
-                        print(conta.tranferir(contas, contaDestino, valor))
+                        print(conta.tranferir(contasC, contaDestino, valor))
 
                     case 4:
                         os.system('cls')
@@ -79,7 +85,7 @@ while opc != 0:
             dono = input('Nome: ')
             numero = int(input('Numero: '))
             conta = ContaSalario(dono, numero)
-            contas.append(conta)
+            contasS.append(conta)
             
             while opc02 != 0:
                 print('SALÁRIO'.center(40, ' ') + '|')
@@ -114,7 +120,7 @@ while opc != 0:
             dono = input('Nome: ')
             numero = int(input('Numero: '))
             conta = ContaPoupanca(dono, numero)
-            contas.append(conta)
+            contasP.append(conta)
 
             while opc02 != 0:
                 print('POUPANÇA'.center(40, ' ') + '|')
