@@ -1,0 +1,55 @@
+COMANDOS A SEREM EXECUTADOS 
+-----------------------------------------------------------------
+aula 01: 
+
+-- INSTALANDO O DJANGO
+pip install Django
+
+-- INICIANDO/CRIANDO UM PROJETO 
+django-admin startproject <nome do projeto>
+
+-- MUDANDO PARA A PASTA CRIADA
+cd <nome do projeto>
+
+-- RODANDO A APLICAÇÃO 
+python manage.py runserver
+
+-- CLICAR NO HOST
+Ctrl + click no http://127.0.0.1:8000/
+
+-- INSTALANDO DEPENDENCIAS NECESSÁRIAS DO BANCO DE DADOS
+python manage.py migrate        
+
+-- CRIANDO UM SUPER USUÁRIO (COM PERMIÇÕES TOTAIS) 
+python manage.py createsuperuser
+
+-- ENTRE NO PAINEL DE CONTROLE DO DJANGO
+http://127.0.0.1:8000/admin
+
+-- LOG COM SEU USUÁRIO
+evelin-kashimir
+k*******123
+
+-- ADICIONE USUARIOS E SUAS PERMISSÕES
+-- CRIE GRUPOS E PERMISSÕES
+-- ENCERRE A SESSÃO 
+-- ACESSE NOVAMENTE COM UM DOS USUÁRIOS CRIADOS
+
+-- CRIANDO UM APP (COMPONENTE)
+python manage.py startapp Produto
+
+-- NO ARQUIVO MODELS CRIE UMA CLASSE QUE IRÁ REFENCIAR O SEU COMPONENTE
+
+-- NO ARQUIVO SETTINGS DO PROJETO
+INSTALLED_APPS
+
+-- INCLUIR O APP (COMPONENTE CRIADO)
+'Nome do componente' 
+
+-- MOVER DEPENDENCIAS PARA ALTERAÇÃO EM BANCO
+python manage.py makemigrations
+
+-- MANDAR ATUALIZAÇÕES PARA A BASE DE DADOS
+python manage.py migrations
+
+
