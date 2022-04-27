@@ -8,9 +8,6 @@ pip install Django
 -- INICIANDO/CRIANDO UM PROJETO 
 django-admin startproject <nome do projeto>
 
--- MUDANDO PARA A PASTA CRIADA
-cd <nome do projeto>
-
 -- RODANDO A APLICAÇÃO 
 python manage.py runserver
 
