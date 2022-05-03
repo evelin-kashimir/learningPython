@@ -1,3 +1,26 @@
 {% extends 'base.html' %}
 
 {% block titulo %} Contato {% endblock %}
+
+{% block cabeca %} <h3> Cadastro 📑 </h3> {% endblock %}
+
+{% block corpo %}
+<form action="">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>Nome</h6></label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Maria Souza" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>CPF</h6></label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="___.___.___-__" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>E-mail</h6></label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="maria@gmail.com" required>
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="btn btn-outline-success" value="Enviar"> </input>
+        <input type="reset" class="btn btn-outline-danger" value="Cancelar"> </input>
+    </div>
+</form>
+{% endblock %}

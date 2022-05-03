@@ -49,4 +49,8 @@ python manage.py makemigrations
 -- MANDAR ATUALIZAÇÕES PARA A BASE DE DADOS
 python manage.py migrations
 
+-- Importando um app
+urls
+from <nome do app> import <nome do método que vai ser importado>
 
+ 

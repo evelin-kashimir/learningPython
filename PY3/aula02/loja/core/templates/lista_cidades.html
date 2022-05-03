@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Lista de Cidades {% endblock %}
+
+{% block cabeca %}
+<div class="container">
+    <div class="row justify-content-md-center">
+       <h3>
+           <label class="text-primary">Lista de Cidades 🏙 </label>
+       </h3>
+    </div>
+</div>
+{% endblock %}
+
+{% block corpo %}
+<div class="container">
+    <div class="row justify-content-md-center">
+       <h6>
+           <label class="text-secondary">Cidades Cadastradas</label>
+       </h6>
+    </div>
+    <div class="row justify-content-md-center">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th class="text-center" scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mark</td>
+                <td class="text-center">
+                    <button class="btn">⚙</button> 
+                    <button class="btn">❌</button> 
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <label> Total de registros: </label>
+                    </td>
+                </tr>
+            </tfoot>
+          </table>
+     </div
+</div>
+{% endblock %}
+
+{% block pe %}
+<div class="container">
+    <button class="btn btn-outline-success"> Novo </button>
+</div>
+{% endblock %}

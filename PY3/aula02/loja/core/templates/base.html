@@ -15,5 +15,20 @@
 </head>
 <body>
     {% include 'cabecalho.html' %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header text-primary">
+                {% block cabeca %}{% endblock %}
+            </div>
+            <div class="card-body">
+                {% block corpo %}{% endblock %}
+            </div>
+            <div class="footer">
+                {% block pe %}{% endblock %}
+            </div>
+            <br/>
+        </div>
+    </div>
+   
 </body>
 </html>

@@ -17,15 +17,26 @@ from mimetypes import init
 from django.contrib import admin
 from django.urls import path
 from testeView.views import exibeTabela, retornaRequest, init, contato, base
+from Pessoa.views import lista_clientes, lista_fornecedores, lista_tp_pessoas, lista_usuarios
+from Item.views import lista_categorias, lista_itens
+from Local.views import lista_estados, lista_cidades
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('__exemplo/', retornaRequest),
-    path('__tabela/', exibeTabela),
-    path('__index/', init),
-    path('__contato/', contato),
-    path('__base/', base),
+    path('exemplo', retornaRequest),
+    path('tabela', exibeTabela),
+    path('init', init),
+    path('contato', contato),
+    path('base', base),
     path('', init),
+    path('tipos-pessoa', lista_tp_pessoas ),
+    path('clientes', lista_clientes),
+    path('fornecedores', lista_fornecedores),
+    path('usuarios', lista_usuarios),
+    path('categorias', lista_categorias),
+    path('itens', lista_itens),
+    path('estados', lista_estados),
+    path('cidades', lista_cidades)
 ]; 
 
 
