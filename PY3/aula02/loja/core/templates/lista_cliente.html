@@ -15,6 +15,7 @@
 {% block corpo %}
 <div class="container">
     <div class="row justify-content-md-center">
+        {% if total > 0%}
        <h6>
            <label class="text-secondary">Clientes Cadastrados</label>
        </h6>
@@ -24,36 +25,43 @@
             <thead>
               <tr>
                 <th scope="col">Nome</th>
-                <th scope="col">CPF/CNPJ</th>
                 <th scope="col">E-mail</th>
+                <th scope="col">CPF | CNPJ</th>
+                <th scope="col">Tipo de Pessoa</th>
                 <th class="text-center" scope="col">Ações</th>
               </tr>
             </thead>
             <tbody>
+                {% for cli in cliente %}
               <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
+                <td>{{ cli.nome}}</td>
+                <td>{{ cli.email}}</td>
+                <td>{{ cli.CpfCnpj}}</td>
+                <td>{{ cli.tp_pessoa}}</td>
                 <td class="text-center">
-                    <button class="btn">⚙</button> 
-                    <button class="btn">❌</button> 
+                    <a href="altera-cliente/{{ cli.id }}"><button class="btn">⚙</button></a>
+                    <a href="exclui-cliente"><button class="btn">❌</button></a>
                 </td>
               </tr>
+              {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
                     <td>
-                        <label> Total de registros: </label>
+                        <label> Total de registros: <b> {{ total }} </b></label>
                     </td>
                 </tr>
             </tfoot>
         </table>
+        {% else %}  
+        <h3>Não existem clientes cadastrados. </h3>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
 
 {% block pe %}
 <div class="container">
-    <button class="btn btn-outline-success"> Novo </button>
+    <a href="cadastra-cliente"><button class="btn btn-outline-success">Novo</button></a>
 </div>
 {% endblock %}

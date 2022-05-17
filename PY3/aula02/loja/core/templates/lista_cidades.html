@@ -15,41 +15,49 @@
 {% block corpo %}
 <div class="container">
     <div class="row justify-content-md-center">
+        {% if total > 0 %}
        <h6>
            <label class="text-secondary">Cidades Cadastradas</label>
        </h6>
     </div>
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-md-center">      
         <table class="table">
             <thead>
               <tr>
                 <th scope="col">Nome</th>
+                <th scope="col">Estado</th>
                 <th class="text-center" scope="col">Ações</th>
               </tr>
             </thead>
             <tbody>
+                {% for cidade in cidade %}
               <tr>
-                <td>Mark</td>
+                <td>{{ cidade.nome }}</td>
+                <td>{{ cidade.sigla }}</td>
                 <td class="text-center">
-                    <button class="btn">⚙</button> 
-                    <button class="btn">❌</button> 
+                    <a href="altera-cidade/{{ cidade.id }}"><button class="btn">⚙</button></a>
+                    <a href="exclui-cidade"><button class="btn">❌</button></a>
                 </td>
               </tr>
+              {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
                     <td>
-                        <label> Total de registros: </label>
+                        <label> Total de registros: <b> {{ total }} </b></label>
                     </td>
                 </tr>
             </tfoot>
           </table>
-     </div
+        {% else %}  
+        <h3>Não existem cidades cadastradas. </h3>
+        {% endif %}
+        </div>
 </div>
 {% endblock %}
 
 {% block pe %}
 <div class="container">
-    <button class="btn btn-outline-success"> Novo </button>
+    <a href="cadastra-cidade"><button class="btn btn-outline-success">Novo</button></a>
 </div>
 {% endblock %}

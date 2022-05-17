@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Exclusão de Itens {%endblock%}
+{% block cabeca %}
+<div class="container">
+    <div class="row justify-content-md-center">
+       <h3>
+           <label class="text-primary"> Excluir Item 💻 </label>
+       </h3>
+    </div>
+</div>
+{% endblock %}
+{% block corpo %}
+<form action="">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>Descrição</h6></label>
+        <input type="text" class="form-control" id="descricao" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="categoria">Categoria</label>
+        <select name="categoria" id="categoria" class="form-select">
+            <option value="0">Selecione</option>
+            <option value="1">Hardware</option>
+            <option value="2">Software</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="btn btn-outline-success" value="Excluir"> </input>
+        <a href="itens"><input type="reset" class="btn btn-outline-danger" value="Cancelar"></a>
+    </div>
+</form>
+{% endblock %}

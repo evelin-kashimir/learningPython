@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Cadastro de Categoria {%endblock%}
+{% block cabeca %}
+<div class="container">
+    <div class="row justify-content-md-center">
+       <h3>
+           <label class="text-primary"> Cadastro de Estado 👨🗺 </label>
+       </h3>
+    </div>
+</div>
+{% endblock %}
+{% block corpo %}
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>Sigla</h6></label>
+        <input type="text" class="form-control" name="sigla" id="sigla" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>Nome</h6></label>
+        <input type="text" class="form-control" name="nome" id="nome" required>
+    </div>   
+    <div class="mb-3">
+        <input type="submit" class="btn btn-outline-success" value="Enviar"> </input>
+        <input type="reset" class="btn btn-outline-danger" value="Cancelar"> </input>
+    </div>
+</form>
+{% endblock %}

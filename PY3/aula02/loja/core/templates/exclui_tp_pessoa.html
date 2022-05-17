@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Exclusão de Tipos de Pessoa {%endblock%}
+{% block cabeca %}
+<div class="container">
+    <div class="row justify-content-md-center">
+       <h3>
+           <label class="text-primary"> Exluir Tipos de Pessoa 👩🏻‍🤝‍🧑🏽 </label>
+       </h3>
+    </div>
+</div>
+{% endblock %}
+{% block corpo %}
+<form action="">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>Descrição</h6></label>
+        <input type="text" class="form-control" id="descricao" readonly>
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="btn btn-outline-success" value="Exluir"> </input>
+        <a href="tipos-pessoa"><input type="button" class="btn btn-outline-danger" value="Cancelar"></a>
+    </div>
+</form>
+{% endblock %}

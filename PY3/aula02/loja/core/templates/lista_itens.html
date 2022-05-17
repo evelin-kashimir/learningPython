@@ -14,6 +14,7 @@
 {% block corpo %}
 <div class="container">
     <div class="row justify-content-md-center">
+        {% if total > 0%}
        <h6>
            <label class="text-secondary">Itens Cadastrados</label>
        </h6>
@@ -28,27 +29,32 @@
             </thead>
             <tbody>
               <tr>
-                <td>Mark</td>
+                  {% for item in item %}
+                <td>{{ item.descricao }}</td>
                 <td class="text-center">
-                    <button class="btn">⚙</button> 
-                    <button class="btn">❌</button> 
+                    <a href="altera-item/{{ item.id }}"><button class="btn">⚙</button></a>
+                    <a href="exclui-item"><button class="btn">❌</button></a>
                 </td>
               </tr>
+              {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
                     <td>
-                        <label> Total de registros: </label>
+                        <label> Total de registros: <b> {{ total }} </b></label>
                     </td>
                 </tr>
             </tfoot>
           </table>
+          {% else %}  
+          <h3>Não existem itens cadastrados. </h3>
+          {% endif %}
     </div>
 </div>
 {% endblock %}
 
 {% block pe %}
 <div class="container">
-    <button class="btn btn-outline-success"> Novo </button>
+    <a href="cadastra-item"><button class="btn btn-outline-success">Novo</button></a>
 </div>
 {% endblock %}

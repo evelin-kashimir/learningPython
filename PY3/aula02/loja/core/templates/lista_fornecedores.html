@@ -14,6 +14,7 @@
 {% block corpo %}
 <div class="container">
     <div class="row justify-content-md-center">
+        {% if total > 0%}
        <h6>
            <label class="text-secondary">Fornecedores Cadastrados</label>
        </h6>
@@ -30,25 +31,30 @@
               </tr>
             </thead>
             <tbody>
+                {% for fornecedor in fornecedor %}
               <tr>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
+                <td>{{ fornecedor.nome }}</td>
+                <td>{{ fornecedor.fantasia }}</td>
+                <td>{{ fornecedor.email}}</td>
+                <td>{{ fornecedor.CpfCnpj}}</td>
                 <td class="text-center">
-                    <button class="btn">⚙</button> 
-                    <button class="btn">❌</button> 
+                    <a href="altera-fornecedor/{{ fornecedor.id }}"><button class="btn">⚙</button></a>
+                    <a href="exclui-fornecedor"><button class="btn">❌</button></a>
                 </td>
               </tr>
+              {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
                     <td>
-                        <label> Total de registros: </label>
+                        <label> Total de registros: <b> {{ total }} </b></label>
                     </td>
                 </tr>
             </tfoot>
           </table>
+          {% else %}  
+          <h3>Não existem fornecedores cadastrados. </h3>
+          {% endif %}
      </div>
 </div>
 
@@ -56,6 +62,6 @@
 
 {% block pe %}
 <div class="container">
-    <button class="btn btn-outline-success"> Novo </button>
+    <a href="cadastra-fornecedor"><button class="btn btn-outline-success">Novo</button></a>
 </div>
 {% endblock %}

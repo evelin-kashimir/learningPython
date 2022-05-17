@@ -14,6 +14,7 @@
 {% block corpo %}
 <div class="container">
     <div class="row justify-content-md-center">
+        {% if total > 0 %}
        <h6>
            <label class="text-secondary">Tipos de Pessoa Cadastrados</label>
        </h6>
@@ -27,28 +28,34 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Mark</td>
+                <!-- Implementando o laço FOR para percorrer os dados em forma de tabela -->
+                {% for tipo in tipos %}
+              <tr>  <!-- Chamando a view com os dados do banco -->
+                <td>{{ tipo.descricao }}</td>
                 <td class="text-center">
-                    <button class="btn">⚙</button> 
-                    <button class="btn">❌</button> 
+                    <a href="altera-tipo-pessoa/{{ tipo.id }}"><button class="btn">⚙</button></a>
+                    <a href="exclui-tipo-pessoa"><button class="btn">❌</button></a>
                 </td>
               </tr>
+                {% endfor %} <!-- fim do for **** NUNCA ESQUECER **** -->
             </tbody>
             <tfoot>
                 <tr>
-                    <td>
-                        <label> Total de registros: </label>
+                    <td>                               <!-- Trazendo da view a variável com o total de registros -->
+                        <label> Total de registros: <b> {{ total }} </b></label>   
                     </td>
                 </tr>
             </tfoot>
         </table>
+        {% else %}  
+        <h3>Não existem tipos de possoas cadastrados. </h3>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
 
 {% block pe %}
 <div class="container">
-    <button class="btn btn-outline-success"> Novo </button>
+    <a href="cadastra-tipo-pessoa"><button class="btn btn-outline-success">Novo</button></a>
 </div>
 {% endblock %}

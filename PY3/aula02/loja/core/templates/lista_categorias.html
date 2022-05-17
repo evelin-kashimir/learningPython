@@ -15,6 +15,7 @@
 {% block corpo %}
 <div class="container">
     <div class="row justify-content-md-center">
+        {% if total > 0 %}
        <h6>
            <label class="text-secondary">Categorias Cadastradas</label>
        </h6>
@@ -29,27 +30,32 @@
             </thead>
             <tbody>
               <tr>
-                <td>Mark</td>
+                  {% for cat in categoria %}
+                <td>{{ cat.nome }}</td>
                 <td class="text-center">
-                    <button class="btn">⚙</button> 
-                    <button class="btn">❌</button> 
+                    <button class="btn" onclick="location.href='altera-categoria/{{ categoria.id }}'">⚙</button></a>
+                    <a href="exclui-categoria"><button class="btn">❌</button></a> 
                 </td>
               </tr>
+              {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
                     <td>
-                        <label> Total de registros: </label>
+                        <label> Total de registros: <b> {{ total }} </b></label>
                     </td>
                 </tr>
             </tfoot>
           </table>
-     </div
+          {% else %}  
+          <h3>Não existem categorias cadastradas. </h3>
+          {% endif %}
+        </div>
 </div>
 {% endblock %}
 
 {% block pe %}
 <div class="container">
-    <button class="btn btn-outline-success"> Novo </button>
+    <a href="cadastra-categoria"><button class="btn btn-outline-success">Novo</button></a>
 </div>
 {% endblock %}

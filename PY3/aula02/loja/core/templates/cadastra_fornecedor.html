@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Cadastro de Fornecedores {%endblock%}
+{% block cabeca %}
+<div class="container">
+    <div class="row justify-content-md-center">
+       <h3>
+           <label class="text-primary"> Cadastro de Fornecedores 🚚 </label>
+       </h3>
+    </div>
+</div>
+{% endblock %}
+{% block corpo %}
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>Nome</h6></label>
+        <input type="text" class="form-control" name="nome" id="nome" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>Fantasia</h6></label>
+        <input type="text" class="form-control" name="fantasia" id="fantasia" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>E-mail</h6></label>
+        <input type="text" class="form-control" name="email" id="email" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>CPF/CNPJ</h6></label>
+        <input type="text" class="form-control" name="CpfCnpj" id="CpfCnpj" required>
+    </div>
+    <div class="mb-3">
+        <h6><label >Tipo de Pessoa</label></h6> 
+        <select name="tp_pessoa" id="tp_pessoa" class="form-select">
+            <option value="0">Selecione</option>
+            {% for tp in tipo %}
+            <option value="{{ tp.id }}">{{tp.descricao}}</option>
+            {% endfor %}
+        </select>
+
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="btn btn-outline-success" value="Enviar"> </input>
+        <input type="reset" class="btn btn-outline-danger" value="Cancelar"> </input>
+    </div>
+</form>
+{% endblock %}

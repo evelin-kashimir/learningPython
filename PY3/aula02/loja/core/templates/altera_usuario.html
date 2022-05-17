@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Alteração de Usuários {%endblock%}
+{% block cabeca %}
+<div class="container">
+    <div class="row justify-content-md-center">
+       <h3>
+           <label class="text-primary"> Alterar {{ usuario.nome }}👩‍💻 </label>
+       </h3>
+    </div>
+</div>
+{% endblock %}
+{% block corpo %}
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>Nome</h6></label>
+        <input type="text" class="form-control" name="nome" id="nome" value="{{ usuario.nome }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>Login</h6></label>
+        <input type="text" class="form-control" name="login" id="login" value="{{ usuario.login }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><h6>Senha</h6></label>
+        <input type="password" class="form-control" name="senha" id="senha" value="{{ usuario.senha }}" required>
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="btn btn-outline-success" value="Enviar"> </input>
+        <input type="reset" class="btn btn-outline-danger" value="Cancelar"> </input>
+    </div>
+</form>
+{% endblock %}

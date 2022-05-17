@@ -15,7 +15,7 @@ class TpPessoa(models.Model):
 class Cliente(models.Model):
     nome = models.CharField(max_length=50, blank=False)
     CpfCnpj = models.CharField(max_length=15, unique=True, blank=False)
-    email = models.EmailField(max_length=100, unique=True)
+    email = models.CharField(max_length=100, unique=True, blank=True)
     tp_pessoa = models.ForeignKey(TpPessoa, on_delete=models.CASCADE)
 
     class Meta:
@@ -30,7 +30,7 @@ class Cliente(models.Model):
 class Fornecedor(models.Model):
     nome = models.CharField(max_length=50, blank=False)
     fantasia = models.CharField(max_length=50, unique=True, blank=False)
-    email = models.EmailField(max_length=100, unique=True, blank=False)
+    email = models.CharField(max_length=100, unique=True, blank=True)
     CpfCnpj = models.CharField(max_length=15, unique=True, blank=False)
     tp_pessoa = models.ForeignKey(TpPessoa, on_delete=models.CASCADE) #impede que o usuario exclua o id que estiver vinculado a outra tabela
 
