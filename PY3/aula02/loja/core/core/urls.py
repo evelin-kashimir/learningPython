@@ -58,10 +58,10 @@ urlpatterns = [
     path('altera-fornecedor/<int:id>', altera_fornecedor),
     path('altera-usuario/<int:id>', altera_usuario),
 
-    path('exclui-tipo-pessoa', exclui_tp_pessoa),
-    path('exclui-cliente', exclui_cliente),
-    path('exclui-fornecedor', exclui_fornecedor),
-    path('exclui-usuario', exclui_usuario),
+    path('exclui-tipo-pessoa/<int:id>', exclui_tp_pessoa),
+    path('exclui-cliente/<int:id>', exclui_cliente),
+    path('exclui-fornecedor/<int:id>', exclui_fornecedor),
+    path('exclui-usuario/<int:id>', exclui_usuario),
 
     
     #Item
@@ -71,11 +71,11 @@ urlpatterns = [
     path('cadastra-item', cadastra_item, name='cadastra-item'),
     path('cadastra-categoria', cadastra_categoria, name='cadastra-categoria'),
 
-    path('altera-categoria/' +'<int:id>', altera_categoria),
+    path('altera-categoria/<int:id>', altera_categoria),
     path('altera-item/<int:id>', altera_item),
    
-    path('exclui-categoria', exclui_categoria),
-    path('exlui-item', exclui_item),
+    path('exclui-categoria/<int:id>', exclui_categoria),
+    path('exclui-item/<int:id>', exclui_item),
 
 
     #Local
@@ -88,8 +88,8 @@ urlpatterns = [
     path('altera-estado/<int:id>', altera_estado),
     path('altera-cidade/<int:id>', altera_cidade),
 
-    path('exclui-estado', exclui_estado),
-    path('exclui-cidade', exclui_cidade)
+    path('exclui-estado/<int:id>', exclui_estado),
+    path('exclui-cidade/<int:id>', exclui_cidade)
 ]; 
 
 

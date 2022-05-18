@@ -5,23 +5,29 @@
 <div class="container">
     <div class="row justify-content-md-center">
        <h3>
-           <label class="text-primary"> Excluir Item 💻 </label>
+           <label class="text-primary"> Excluir {{ item.descricao }} 💻 </label>
        </h3>
     </div>
 </div>
 {% endblock %}
 {% block corpo %}
-<form action="">
+<form method="post">
+    {% csrf_token %}
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label"><h6>Descrição</h6></label>
-        <input type="text" class="form-control" id="descricao" readonly>
+        <input type="text" class="form-control" id="descricao" value="{{ item.descricao }}" readonly>
     </div>
     <div class="mb-3">
         <label for="categoria">Categoria</label>
-        <select name="categoria" id="categoria" class="form-select">
+        <select name="categoria" id="categoria" class="form-select" disabled>
             <option value="0">Selecione</option>
-            <option value="1">Hardware</option>
-            <option value="2">Software</option>
+            {% for cat in categoria %}
+            {% if tipoCategoria == categoria.id %}
+            <option value="{{ cat.id }}" selected>{{ cat.nome }}</option>
+            {% else %}
+            <option value="{{ cat.id }}">{{ cat.nome }}</option>
+            {% endif %}
+            {% endfor %}
         </select>
     </div>
     <div class="mb-3">

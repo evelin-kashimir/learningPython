@@ -33,8 +33,8 @@
                   {% for cat in categoria %}
                 <td>{{ cat.nome }}</td>
                 <td class="text-center">
-                    <button class="btn" onclick="location.href='altera-categoria/{{ categoria.id }}'">⚙</button></a>
-                    <a href="exclui-categoria"><button class="btn">❌</button></a> 
+                    <a href="altera-categoria/{{ cat.id }}"><button class="btn">⚙</button></a>
+                    <a href="exclui-categoria/{{ cat.id }}"><button class="btn">❌</button></a> 
                 </td>
               </tr>
               {% endfor %}

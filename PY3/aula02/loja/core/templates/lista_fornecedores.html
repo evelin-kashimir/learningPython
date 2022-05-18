@@ -39,7 +39,7 @@
                 <td>{{ fornecedor.CpfCnpj}}</td>
                 <td class="text-center">
                     <a href="altera-fornecedor/{{ fornecedor.id }}"><button class="btn">⚙</button></a>
-                    <a href="exclui-fornecedor"><button class="btn">❌</button></a>
+                    <a href="exclui-fornecedor/{{ fornecedor.id }}"><button class="btn">❌</button></a>
                 </td>
               </tr>
               {% endfor %}

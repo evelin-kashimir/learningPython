@@ -5,31 +5,37 @@
 <div class="container">
     <div class="row justify-content-md-center">
        <h3>
-           <label class="text-primary"> Excluir Clientes 👨‍💼👩‍💼 </label>
+           <label class="text-primary"> Excluir {{ cliente.nome }} 👨‍💼👩‍💼 </label>
        </h3>
     </div>
 </div>
 {% endblock %}
 {% block corpo %}
-<form action="">
+<form method="post">
+    {% csrf_token %}
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label"><h6>Nome</h6></label>
-        <input type="text" class="form-control" id="nome" readonly>
+        <input type="text" class="form-control" id="nome" value="{{ cliente.nome }}" readonly>
     </div>
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label"><h6>CPF/CNPJ</h6></label>
-        <input type="text" class="form-control" id="CpfCnpj" readonly>
+        <input type="text" class="form-control" id="CpfCnpj" value="{{ cliente.CpfCnpj }}" readonly>
     </div>
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label"><h6>E-mail</h6></label>
-        <input type="text" class="form-control" id="email" readonly>
+        <input type="text" class="form-control" id="email" value="{{ cliente.email }}" readonly>
     </div>
     <div class="mb-3">
         <h6><label for="tp_pessoa">Tipo de Pessoa</label></h6> 
-        <select name="tp_pessoa" id="tp_pessoa" class="form-select">
+        <select name="tp_pessoa" id="tp_pessoa" class="form-select" disabled>
             <option value="0">Selecione</option>
-            <option value="1">Física</option>
-            <option value="2">Jurídica</option>
+            {% for tp in tipo %}
+            {% if tipoPessoa == tp.id %}
+            <option value="{{ tp.id }}" selected>{{ tp.descricao }}</option>
+            {% else %}
+            <option value="{{ tp.id }}">{{ tp.descricao }}</option>
+            {% endif %}
+            {% endfor %}
         </select>
     </div>
     <div class="mb-3">

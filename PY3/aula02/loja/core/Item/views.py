@@ -1,4 +1,3 @@
-
 from django.shortcuts import redirect, render
 from Item.form import FormCategoria, FormItem
 from Item.models import Item, Categoria
@@ -24,8 +23,12 @@ def altera_categoria(request, id):
         return redirect(lista_categorias)
     return render(request, 'altera_categoria.html', {'categoria': categoria})
 
-def exclui_categoria(request):
-    return render(request, 'exclui_categoria.html')
+def exclui_categoria(request, id):
+    categoria = Categoria.objects.get(id = id)
+    if request.method == 'POST':
+        categoria.delete()
+        return redirect(lista_categorias)
+    return render(request, 'exclui_categoria.html', {'categoria': categoria})
 
 
 def lista_itens(request):
@@ -51,5 +54,10 @@ def altera_item(request,id):
         return redirect(lista_itens)
     return render(request, 'altera_item.html', {'item': item, 'categoria': categoria, 'tipoCategoria': tipoCategoria.id})
 
-def exclui_item(request):
-    return render(request, 'exclui_item.html')
+def exclui_item(request, id):
+    item = Item.objects.get(id = id)
+    categoria = Categoria.objects.all()
+    if request.method == 'POST':
+        item.delete()
+        return redirect(lista_itens)
+    return render(request, 'exclui_item.html', {'item': item, 'categoria': categoria,})

@@ -1,3 +1,4 @@
+from tkinter.tix import Form
 from django.shortcuts import redirect, render
 from Local.form import FormCidade, FormEstado
 from Local.models import Cidade, Estado
@@ -24,8 +25,12 @@ def altera_estado(request,id):
         return redirect(lista_estados)
     return render(request, 'altera_estado.html', {'estado': estado})
 
-def exclui_estado(request):
-    return render(request, 'exclui_estado.html')
+def exclui_estado(request, id):
+    estado = Estado.objects.get(id=id)
+    if request.method == 'POST':
+        estado.delete()
+        return redirect(lista_estados)
+    return render(request, 'exclui_estado.html', {'estado': estado})
 
 
 def lista_cidades(request): 
@@ -51,8 +56,12 @@ def altera_cidade(request, id):
         return redirect(lista_cidades)
     return render(request, 'altera_cidade.html',{'cidade': cidade, 'sigla': sigla, 'siglaEstado': siglaEstado} )
     
-def exclui_cidade(request):
-    return render(request, 'exclui_cidade.html')
+def exclui_cidade(request, id):
+    cidade = Cidade.objects.get(id=id)
+    if request.method == 'POST':
+        cidade.delete()
+        return redirect(lista_cidades)
+    return render(request, 'exclui_cidade.html', {'cidade': cidade})
 
 
 

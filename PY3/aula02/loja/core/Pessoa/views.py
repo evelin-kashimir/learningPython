@@ -5,7 +5,6 @@ from django.shortcuts import redirect, render
 from Pessoa.form import FormCliente, FormFornecedor,FormTpPessoa, FormUsuario
 from Pessoa.models import Cliente, Fornecedor, TpPessoa, Usuarios
 
-
 #mandando as def's para o html
 def lista_tp_pessoas(request):
     tipoPessoa = TpPessoa.objects.all()
@@ -28,8 +27,12 @@ def altera_tp_pessoa(request, id):
         return redirect(lista_tp_pessoas)
     return render(request, 'altera_tp_pessoa.html', {'tipo': tipo})
 
-def exclui_tp_pessoa(request):
-    return render(request, 'exclui_tp_pessoa.html')
+def exclui_tp_pessoa(request, id):
+    tipo = TpPessoa.objects.get(id = id)
+    if request.method == 'POST':
+        tipo.delete()
+        return redirect(lista_tp_pessoas)
+    return render(request, 'exclui_tp_pessoa.html', {'tipo': tipo})
 
 
 def lista_clientes(request):
@@ -55,8 +58,14 @@ def altera_cliente(request, id):
         return redirect(lista_clientes)
     return render(request, 'altera_cliente.html', {'cliente': cliente, 'tipo': tipo, 'tipoPessoa': tipoCliente.id}) 
 
-def exclui_cliente(request):
-    return render(request, 'exclui_cliente.html')
+def exclui_cliente(request, id):
+    cliente = Cliente.objects.get(id = id)
+    tipo = TpPessoa.objects.all()
+    tipoCliente = TpPessoa.objects.get(id=cliente.tp_pessoa_id)
+    if request.method == 'POST':
+        cliente.delete()
+        return redirect(lista_clientes)
+    return render(request, 'exclui_cliente.html', {'cliente': cliente, 'tipo': tipo, 'tipoPessoa': tipoCliente.id})
 
 
 def lista_fornecedores(request):
@@ -82,8 +91,14 @@ def altera_fornecedor(request, id):
         return redirect(lista_fornecedores)
     return render(request, 'altera_fornecedor.html', {'fornecedor': fornecedor, 'tipo': tipo, 'tipoPessoa': tipoFornecedor.id})
 
-def exclui_fornecedor(request):
-    return render(request, 'exclui_fornecedor.html')
+def exclui_fornecedor(request, id):
+    fornecedor = Fornecedor.objects.get(id = id)
+    tipo = TpPessoa.objects.all()
+    tipoFornecedor = TpPessoa.objects.get(id=fornecedor.tp_pessoa_id)
+    if request.method == 'POST':
+        fornecedor.delete()
+        return redirect(lista_fornecedores)
+    return render(request, 'exclui_fornecedor.html', {'fornecedor': fornecedor, 'tipo': tipo, 'tipoPessoa': tipoFornecedor.id})
 
 
 def lista_usuarios(request):
@@ -106,6 +121,10 @@ def altera_usuario(request, id):
         return redirect(lista_usuarios)
     return render(request, 'altera_usuario.html', {'usuario': usuario})
 
-def exclui_usuario(request):
-    return render(request, 'exclui_usuario.html')
+def exclui_usuario(request, id):
+    usuario = Usuarios.objects.get(id = id)
+    if request.method == 'POST':
+        usuario.delete()
+        return redirect(lista_usuarios)
+    return render(request, 'exclui_usuario.html', {'usuario': usuario})
 

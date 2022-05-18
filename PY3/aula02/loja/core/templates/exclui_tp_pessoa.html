@@ -5,16 +5,17 @@
 <div class="container">
     <div class="row justify-content-md-center">
        <h3>
-           <label class="text-primary"> Exluir Tipos de Pessoa 👩🏻‍🤝‍🧑🏽 </label>
+           <label class="text-primary"> Exluir Tipo {{ tipo.descricao }} 👩🏻‍🤝‍🧑🏽 </label>
        </h3>
     </div>
 </div>
 {% endblock %}
 {% block corpo %}
-<form action="">
+<form method="post">
+    {% csrf_token %}
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label"><h6>Descrição</h6></label>
-        <input type="text" class="form-control" id="descricao" readonly>
+        <input type="text" class="form-control" id="descricao" value="{{ tipo.descricao }}" readonly>
     </div>
     <div class="mb-3">
         <input type="submit" class="btn btn-outline-success" value="Exluir"> </input>
